@@ -1,3 +1,4 @@
+
 <a href="${pageContext.request.contextPath}/">
     HomePage
 </a>
@@ -6,4 +7,5 @@
     Login
 </a>
 
-<span style="color:red; margin-left: 90%"> Welcome, ${loginedUser.userName} </span>
+<%-- <span style="color:red; margin-left: 90%"> Welcome, ${loginedUser.getUserName()} </span>
+<span style="color:red; margin-left: 90%"> Welcome, ${userRole} </span> --%>

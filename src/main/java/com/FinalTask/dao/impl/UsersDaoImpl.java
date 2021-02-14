@@ -31,11 +31,8 @@ public class UsersDaoImpl implements UsersDao {
                 user.setUserPassword(resultSet.getString("user_password"));
                 user.setUserEmail(resultSet.getString("user_email"));
                 user.setUserPhoneNumber(resultSet.getString("user_phone_number"));
+                user.setRoleId(resultSet.getInt("role_id"));
                 int roleID = resultSet.getInt("role_id");
-                switch (roleID) {
-                    case 1:
-                        user.setRole("Admin");
-                }
                 mapUsers.put(user.getUserName(), user);
             }
         } catch (SQLException throwables) {

@@ -1,12 +1,21 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="menus/menuConnector.jsp"></jsp:include>
 
-<jsp:include page="menus/menu.jsp"></jsp:include>
 
 <h3>Login Page</h3>
 
@@ -27,7 +36,7 @@
         <tr>
             <td colspan ="2">
                 <input type="submit" value= "Submit" />
-                <a href="${pageContext.request.contextPath}/">Cancel</a>
+                <a margin-left="10px" href="${pageContext.request.contextPath}/">Cancel</a>
             </td>
         </tr>
     </table>

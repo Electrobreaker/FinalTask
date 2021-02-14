@@ -1,5 +1,6 @@
 package com.FinalTask.utils;
 
+import com.FinalTask.entity.Role;
 import com.FinalTask.entity.Users;
 
 import java.util.HashMap;
@@ -19,6 +20,7 @@ public class AppUtils {
     public static void storeLoginedUser(HttpSession session, Users loginedUser) {
         // На JSP можно получить доступ через ${loginedUser}
         session.setAttribute("loginedUser", loginedUser);
+        session.setAttribute("userRole", Role.getRole(loginedUser).name());
     }
 
     // Получить информацию пользователя, сохраненную в Session.

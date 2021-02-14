@@ -9,18 +9,9 @@ public class Users implements Serializable {
     private String userEmail;
     private String userAddress;
     private String userPhoneNumber;
-    private String role;
+    private Integer roleId;
 
     public Users() {
-    }
-
-    public Users(Integer id) {
-        this.id = id;
-    }
-
-    public Users(Integer id, String userName) {
-        this.id = id;
-        this.userName = userName;
     }
 
     public Integer getId() {
@@ -71,12 +62,12 @@ public class Users implements Serializable {
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public String getRole() {
-        return role;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoleId(Integer role) {
+        this.roleId = role;
     }
 
     @Override

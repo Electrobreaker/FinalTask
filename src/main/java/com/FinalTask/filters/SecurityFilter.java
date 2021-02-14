@@ -1,5 +1,6 @@
 package com.FinalTask.filters;
 
+import com.FinalTask.entity.Role;
 import com.FinalTask.entity.Users;
 import com.FinalTask.request.UserRoleRequestWrapper;
 import com.FinalTask.utils.AppUtils;
@@ -53,7 +54,7 @@ public class SecurityFilter implements Filter {
             String userName = loginedUser.getUserName();
 
             // Роли (Role).
-            String role = loginedUser.getRole();
+            String role = Role.getRole(loginedUser).name();
 
             // Старый пакет request с помощью нового Request с информацией userName и Roles.
             wrapRequest = new UserRoleRequestWrapper(userName, role, request);
