@@ -14,8 +14,8 @@
     Storage
 </a>
 |
-<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/login">
-    Login
+<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/pages/adminPage">
+    AdminPage
 </a>
 |
 <a style="margin-left:25px; margin-right: 25px;" href="${pageContext.request.contextPath}/logout">
@@ -23,4 +23,4 @@
 </a>
 
 &nbsp;
-<span style="color:red; margin-left: 90%"> Welcome, ${loginedUser.userName} </span>
+<%-- <span style="color:red; margin-left: 90%"> Welcome, ${loginedUser.userName} </span> --%>

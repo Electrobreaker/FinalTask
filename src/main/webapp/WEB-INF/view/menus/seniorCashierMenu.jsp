@@ -10,14 +10,6 @@
     Senior-cashier page
 </a>
 |
-<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/storage">
-    Storage
-</a>
-|
-<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/pages/adminPage">
-    AdminPage
-</a>
-|
 <a style="margin-left:25px; margin-right: 25px;" href="${pageContext.request.contextPath}/logout">
     Logout
 </a>

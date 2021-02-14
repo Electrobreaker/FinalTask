@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<jsp:include page="menus/menu.jsp"></jsp:include>
+<jsp:include page="menus/menuConnector.jsp"></jsp:include>
 
 <br/><br/>
 
