@@ -12,18 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet({ "/login", "/logout" })
+@WebServlet({ "/", "/login", "/logout" })
 public class LoginLogoutServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getServletPath();
-        if (path.equals("/logout")) {
+         if (path.equals("/login") || path.equals("/")) {
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/login.jsp");
+            dispatcher.forward(request, response);
+         }  else if (path.equals("/logout")) {
             request.getSession().invalidate();
             response.sendRedirect(request.getContextPath() + "/");
-        } else if (path.equals("/login")) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp");
-            dispatcher.forward(request, response);
-        }
+         }
     }
 
     @Override

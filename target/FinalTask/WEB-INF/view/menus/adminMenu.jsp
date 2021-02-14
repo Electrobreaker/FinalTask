@@ -14,7 +14,7 @@
     Storage
 </a>
 |
-<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/pages/adminPage">
+<a style="margin-left:25px; margin-right: 25px" href="${pageContext.request.contextPath}/adminPage">
     AdminPage
 </a>
 |
