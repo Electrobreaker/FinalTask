@@ -23,6 +23,7 @@ public class SecurityConfig {
         urlPatternsAdmin.add("/cashier");
         urlPatternsAdmin.add("/Senior cashier");
         urlPatternsAdmin.add("/storage");
+        //urlPatternsAdmin.add("/adminPage");
         mapConfig.put(Role.ADMIN.toString(), urlPatternsAdmin);
         System.out.println(Role.ADMIN.toString());
 

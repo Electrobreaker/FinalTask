@@ -33,6 +33,7 @@ public class LoginLogoutServlet extends HttpServlet {
         if (path.equals("/login")) {
             String userName = request.getParameter("userName");
             String password = request.getParameter("userPassword");
+            System.out.println(userName + password);
             Users user = UsersDaoImpl.findUser(userName, password);
             if (user == null) {
                 String errorMessage = "Invalid userName or Password";
@@ -40,7 +41,7 @@ public class LoginLogoutServlet extends HttpServlet {
                 request.setAttribute("errorMessage", errorMessage);
 
                 RequestDispatcher dispatcher //
-                        = this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp");
+                        = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/login.jsp");
 
                 dispatcher.forward(request, response);
                 return;
