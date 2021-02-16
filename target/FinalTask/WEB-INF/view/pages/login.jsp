@@ -34,8 +34,9 @@
 
         <tr>
             <td colspan ="2">
-                <input type="submit" value= "Submit"/>
-                <a margin-left="10px" href="${pageContext.request.contextPath}/">Cancel</a>
+                <br>
+                <input style="margin-left: 183px" type="submit" value= "Submit"/>
+
             </td>
         </tr>
     </table>

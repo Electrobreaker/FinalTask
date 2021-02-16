@@ -51,7 +51,20 @@ public class UsersDaoImpl implements UsersDao {
 
     @Override
     public int createUser(Users user) {
-        initUsers();
+        Connection connection = ConnectionPool.getInstance().getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO USERS(user_name, user_password, user_email, " +
+                    "user_address, user_phone_number, role_id) VALUES(?,?,?,?,?,?)");
+            statement.setString(1, user.getUserName());
+            statement.setString(2, user.getUserPassword());
+            statement.setString(3, user.getUserEmail());
+            statement.setString(4, user.getUserAddress());
+            statement.setString(5, user.getUserPhoneNumber());
+            statement.setInt(6, user.getRoleId());
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return 0;
     }
 
