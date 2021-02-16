@@ -6,8 +6,4 @@ public interface GoodsDao {
 
     int createGoods(Goods goods);
 
-    int editGoods(Goods goods);
-
-    int deleteGoods(int id);
-
 }

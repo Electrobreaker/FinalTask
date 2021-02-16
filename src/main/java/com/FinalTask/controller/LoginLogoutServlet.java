@@ -1,5 +1,6 @@
 package com.FinalTask.controller;
 
+import com.FinalTask.dao.UsersDao;
 import com.FinalTask.dao.impl.UsersDaoImpl;
 import com.FinalTask.entity.Users;
 import com.FinalTask.utils.AppUtils;
@@ -33,8 +34,8 @@ public class LoginLogoutServlet extends HttpServlet {
         if (path.equals("/login")) {
             String userName = request.getParameter("userName");
             String password = request.getParameter("userPassword");
-            System.out.println(userName + password);
-            Users user = UsersDaoImpl.findUser(userName, password);
+            UsersDao usersDao = new UsersDaoImpl();
+            Users user = usersDao.findUserByNameAndPass(userName, password);
             if (user == null) {
                 String errorMessage = "Invalid userName or Password";
 

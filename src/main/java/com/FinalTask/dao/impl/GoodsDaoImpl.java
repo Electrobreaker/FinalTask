@@ -13,41 +13,17 @@ public class GoodsDaoImpl implements GoodsDao {
     public int createGoods(Goods goods) {
         Connection con = ConnectionPool.getInstance().getConnection();
         try {
-            PreparedStatement pr = con.prepareStatement("insert into "
-                    + "goods(goods_name, goods_quantity, goods_price, is_available) values(?,?,?,?)");
+            PreparedStatement pr = con.prepareStatement("INSERT INTO "
+                    + "goods(goods_name, goods_quantity, goods_price) values(?,?,?)");
             pr.setString(1, goods.getGoodsName());
             pr.setInt(2, goods.getGoodsQuantity());
-            pr.setFloat(3, goods.getGoods_price());
-            pr.setBoolean(4, true);
+            pr.setBigDecimal(3, goods.getGoodsPrice());
             pr.executeUpdate();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            try {
-                con.close();
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            return 0;
-
-        }
-        try {
             con.close();
+            pr.close();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return 1;
-    }
-
-    @Override
-    public int editGoods(Goods goods) {
-        return 0;
-    }
-
-    @Override
-    public int deleteGoods(int id) {
         return 0;
     }
 

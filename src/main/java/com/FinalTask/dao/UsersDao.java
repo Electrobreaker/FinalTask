@@ -6,8 +6,6 @@ public interface UsersDao {
 
     int createUser(Users user);
 
-    int editUser(Users user);
-
-    int deleteUser(int id);
+    Users findUserByNameAndPass(String userName, String userPassword);
 
 }
