@@ -7,7 +7,7 @@ public class Goods implements Serializable {
     private Integer goodsId;
     private String goodsName;
     private Integer goodsQuantity;
-    private BigDecimal goods_price;
+    private BigDecimal goodsPrice;
 
     public Goods() {
     }
@@ -37,11 +37,11 @@ public class Goods implements Serializable {
     }
 
     public BigDecimal getGoodsPrice() {
-        return goods_price;
+        return goodsPrice;
     }
 
     public void setGoodsPrice(BigDecimal goods_price) {
-        this.goods_price = goods_price;
+        this.goodsPrice = goods_price;
     }
 
 
