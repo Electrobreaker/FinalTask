@@ -1,7 +1,6 @@
 package com.FinalTask.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Bills implements Serializable {
@@ -9,7 +8,7 @@ public class Bills implements Serializable {
     private Date billDate;
     private Users user_name;
     private Bill_status statusId;
-    private BigDecimal billValue;
+    private Float billValue;
 
     public Bills() {
 
@@ -51,11 +50,11 @@ public class Bills implements Serializable {
         this.statusId = statusId;
     }
 
-    public BigDecimal getBillValue() {
+    public Float getBillValue() {
         return billValue;
     }
 
-    public void setBillValue(BigDecimal billValue) {
+    public void setBillValue(Float billValue) {
         this.billValue = billValue;
     }
 }

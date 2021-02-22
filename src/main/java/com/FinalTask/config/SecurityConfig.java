@@ -25,6 +25,7 @@ public class SecurityConfig {
         urlPatternsAdmin.add("/storage");
         urlPatternsAdmin.add("/adminPage");
         mapConfig.put(Role.ADMIN.toString(), urlPatternsAdmin);
+        System.out.println(Role.ADMIN.toString());
 
         // Конфигурация для роли "CASHIER".
         List<String> urlPatternsCashier = new ArrayList<>();

@@ -37,7 +37,7 @@ public class LoginLogoutServlet extends HttpServlet {
             UsersDao usersDao = new UsersDaoImpl();
             Users user = usersDao.findUserByNameAndPass(userName, password);
             if (user == null) {
-                String errorMessage = "Invalid username or password";
+                String errorMessage = "Invalid userName or Password";
 
                 request.setAttribute("errorMessage", errorMessage);
 
@@ -48,11 +48,9 @@ public class LoginLogoutServlet extends HttpServlet {
                 return;
             }
 
+
             AppUtils.storeLoginedUser(request.getSession(), user);
 
-            String errorMessage = "";
-
-            request.setAttribute("errorMessage", errorMessage);
 
             //
             int redirectId = -1;
