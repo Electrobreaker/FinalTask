@@ -15,15 +15,22 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-@WebServlet({"/storagePage"})
-public class StoragePageServlet extends HttpServlet {
-    private static final Integer recordsPerPage = 18;
+@WebServlet({"/storage"})
+public class StorageServlet extends HttpServlet {
+    private static Integer recordsPerPage;
     private static Integer currentPage;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String path = request.getServletPath();
+        if (path.equals("/storageSettings")) {
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/storageSettings.jsp");
+            dispatcher.forward(request, response);
+        }
+
         response.setContentType("text/html;charset=UTF-8");
         currentPage = Integer.parseInt(request.getParameter("currentPage"));
+        recordsPerPage = Integer.parseInt(request.getParameter("recordsPerPage"));
 
         GoodsDao goodsDao = new GoodsDaoImpl();
         List<Goods> goodsList = goodsDao.findGoods(currentPage, recordsPerPage);
@@ -35,6 +42,7 @@ public class StoragePageServlet extends HttpServlet {
         int nOfPages = rows / recordsPerPage;
 
         if (nOfPages % recordsPerPage > 0) {
+
             nOfPages++;
         }
 
@@ -42,7 +50,7 @@ public class StoragePageServlet extends HttpServlet {
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("recordsPerPage", recordsPerPage);
 
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/storagePage.jsp");
+        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/storage.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -55,6 +63,6 @@ public class StoragePageServlet extends HttpServlet {
         GoodsDao goodsDao = new GoodsDaoImpl();
         goodsDao.createGoods(goods);
         System.out.println(request.getContextPath() + request.getServletPath());
-        response.sendRedirect(request.getContextPath() + "/storagePage&currentPage=" + currentPage);
+        response.sendRedirect(request.getContextPath() + "/storage?recordsPerPage=" + recordsPerPage + "&currentPage=" + currentPage);
     }
 }
