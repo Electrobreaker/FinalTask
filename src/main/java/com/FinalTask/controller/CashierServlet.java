@@ -27,7 +27,7 @@ public class CashierServlet extends HttpServlet {
         GoodsDao goodsDao = new GoodsDaoImpl();
         List<Goods> goodsList = goodsDao.findGoods(currentPage, recordsPerPage);
 
-        request.setAttribute("goodsList", goodsList);
+        request.setAttribute("goodsList2", goodsList);
 
         int rows = goodsDao.getNumberOfRows();
 
@@ -38,9 +38,9 @@ public class CashierServlet extends HttpServlet {
             nOfPages++;
         }
 
-        request.setAttribute("noOfPages", nOfPages);
-        request.setAttribute("currentPage", currentPage);
-        request.setAttribute("recordsPerPage", recordsPerPage);
+        request.setAttribute("noOfPages2", nOfPages);
+        request.setAttribute("currentPage2", currentPage);
+        request.setAttribute("recordsPerPage2", recordsPerPage);
 
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/cashier.jsp");

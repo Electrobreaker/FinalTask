@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
     <title>Title</title>
@@ -9,7 +10,7 @@
 
   <body>
   <jsp:include page="../menus/menuConnector.jsp"></jsp:include>
-  <h2 style="color: blue; margin-left: 44%" >Cashier Page</h2>
+  <h2 style="color: blue; margin-left: 40%" >Cashier Page</h2>
 
 
   <br>
@@ -25,7 +26,7 @@
             <th>Price</th>
           </tr>
 
-          <c:forEach items="${goodsList}" var="goods">
+          <c:forEach items="${goodsList2}" var="goods">
             <tr>
               <td>${goods.getGoodsId()}</td>
               <td>${goods.getGoodsName()}</td>
@@ -38,30 +39,30 @@
 
       <nav aria-label="Navigation for countries">
         <ul class="pagination">
-          <c:if test="${currentPage != 1}">
+          <c:if test="${currentPage2 != 1}">
             <li class="page-item"><a class="page-link"
-                                     href="storage?recordsPerPage=${recordsPerPage}&currentPage=${currentPage-1}">Previous</a>
+                                     href="cashier?currentPage=${currentPage2-1}">Previous</a>
             </li>
           </c:if>
 
-          <c:forEach begin="1" end="${noOfPages}" var="i">
+          <c:forEach begin="1" end="${noOfPages2}" var="i">
             <c:choose>
-              <c:when test="${currentPage eq i}">
+              <c:when test="${currentPage2 eq i}">
                 <li class="page-item active"><a class="page-link">
                     ${i} <span class="sr-only">(current)</span></a>
                 </li>
               </c:when>
               <c:otherwise>
                 <li class="page-item"><a class="page-link"
-                                         href="storage?recordsPerPage=${recordsPerPage}&currentPage=${i}">${i}</a>
+                                         href="cashier?currentPage=${i}">${i}</a>
                 </li>
               </c:otherwise>
             </c:choose>
           </c:forEach>
 
-          <c:if test="${currentPage lt noOfPages}">
+          <c:if test="${currentPage2 lt noOfPages2}">
             <li class="page-item"><a class="page-link"
-                                     href="storage?recordsPerPage=${recordsPerPage}&currentPage=${currentPage+1}">Next</a>
+                                     href="cashier?currentPage=${currentPage2+1}">Next</a>
             </li>
           </c:if>
         </ul>
