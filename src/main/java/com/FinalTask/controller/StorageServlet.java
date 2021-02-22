@@ -15,22 +15,16 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-@WebServlet({"/storage"})
+@WebServlet({"/storage", "/storageSettings"})
 public class StorageServlet extends HttpServlet {
-    private static Integer recordsPerPage;
+    private static final Integer recordsPerPage = 18;
     private static Integer currentPage;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String path = request.getServletPath();
-        if (path.equals("/storageSettings")) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/view/pages/storageSettings.jsp");
-            dispatcher.forward(request, response);
-        }
-
         response.setContentType("text/html;charset=UTF-8");
         currentPage = Integer.parseInt(request.getParameter("currentPage"));
-        recordsPerPage = Integer.parseInt(request.getParameter("recordsPerPage"));
 
         GoodsDao goodsDao = new GoodsDaoImpl();
         List<Goods> goodsList = goodsDao.findGoods(currentPage, recordsPerPage);
