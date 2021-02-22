@@ -31,7 +31,7 @@
   <body>
 
     <jsp:include page="../menus/menuConnector.jsp"></jsp:include>
-    <h2>Склад</h2>
+    <h2 style="color: blue; margin-left: 40%" >Storage</h2>
     <h3>Create goods</h3>
 
 
@@ -62,20 +62,25 @@
       <button style="margin-left: 481px" type="submit" class="btn btn-primary btn-lg"> Add </button>
     </form>
 
-
+  <br>
     <div class="split right">
+      <br>
     <main class="m-3">
       <div class="row col-md-6">
         <table class="table table-striped table-bordered table-sm">
           <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
           </tr>
 
           <c:forEach items="${goodsList}" var="goods">
             <tr>
               <td>${goods.getGoodsId()}</td>
               <td>${goods.getGoodsName()}</td>
+              <td>${goods.getGoodsQuantity()}</td>
+              <td>${goods.getGoodsPrice()}</td>
             </tr>
           </c:forEach>
         </table>
