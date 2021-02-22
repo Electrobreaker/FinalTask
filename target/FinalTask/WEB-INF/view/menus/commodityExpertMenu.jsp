@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="navbar-brand" aria-current="page" href="${pageContext.request.contextPath}/profile"> Profile </a>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/storageSettings"> Storage </a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/storage?currentPage=1"> Storage </a>
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/logout"> Logout </a>
             </div>
         </div>
